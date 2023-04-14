@@ -6,7 +6,7 @@ import Popup from "./popup";
 
 import Image from "next/image";
 import List from "./List";
-const url = "https://graphql-pokemon2.vercel.app";
+const url = process.env.BACKOFFICE_API || "https://graphql-pokemon2.vercel.app";
 const client = new ApolloClient({
   uri: url,
   cache: new InMemoryCache(),

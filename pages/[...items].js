@@ -3,7 +3,7 @@ import { DetailsQuery } from "../utils/queries/queries";
 import DetailCard from "../components/DetailCard";
 
 // query
-const url = process.env.BACKOFFICE_API;
+const url = process.env.BACKOFFICE_API || "https://graphql-pokemon2.vercel.app";
 const client = new ApolloClient({
   uri: url,
   cache: new InMemoryCache(),
@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
   } catch (e) {
     console.log(JSON.stringify(e, null, 2));
   }
-  const pokemonDetails = data?.data?.pokemon
+  const pokemonDetails = data?.data?.pokemon;
   return {
     props: {
       pokemonDetails,

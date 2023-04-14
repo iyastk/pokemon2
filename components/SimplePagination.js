@@ -94,7 +94,7 @@ export const SimplePagination = (props) => {
         ) : (
           ""
         )}
-        {currentPage > 2 ? (
+        {currentPage > 1 ? (
           <li className="ml-3 first:ml-0">
             <a
               className="btn flex items-center justify-center btn block w-10 h-10 p-2	 bg-white shadow-md border-gray-200 hover:border-gray-300 text-indigo-500 p-1"

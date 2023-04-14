@@ -9,7 +9,7 @@ import {
 } from "../components/SimplePagination";
 
 // query
-const url = process.env.BACKOFFICE_API;
+const url = process.env.BACKOFFICE_API || "https://graphql-pokemon2.vercel.app";
 const client = new ApolloClient({
   uri: url,
   cache: new InMemoryCache(),
@@ -52,7 +52,7 @@ export default function Home(props) {
   const paginatedPosts = paginate(product, currentPage, pageSize);
 
   const fetchNewOutPut = async () => {
-    const variable = endOffset + 20;
+    const variable = endOffset + 60;
     const queryString = PokemonQuery();
     const query = gql(queryString);
     const variables = { first: variable };
@@ -84,7 +84,7 @@ export default function Home(props) {
 
   return (
     <main className=" bg-blue-200 px-10">
-      <div className="grid grid-cols-4  md:grid-cols-3 sm:grid-cols-2		 gap-2">
+      <div className="grid  xl:grid-cols-4  xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1		 gap-2">
         {paginatedPosts.map((el) => {
           return <Card key={el.id} {...el}></Card>;
         })}
