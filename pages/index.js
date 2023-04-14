@@ -2,7 +2,11 @@ import { ApolloClient, InMemoryCache, gql, useQuery } from "@apollo/client";
 import { PokemonQuery } from "../utils/queries/queries";
 import Card from "../components/Card";
 import { useState } from "react";
-import { SimplePagination, paginate } from "../components/SimplePagination";
+import {
+  SimplePagination,
+  paginate,
+  displayPage,
+} from "../components/SimplePagination";
 
 // query
 const url = "https://graphql-pokemon2.vercel.app";
@@ -38,17 +42,14 @@ export default function Home(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemOffset, setItemOffset] = useState(0);
   const [product, setProduct] = useState(pokemon);
+  const [initialPages, setInitialPages] = useState([]);
+
   const pageSize = 20;
 
   const endOffset = itemOffset + pageSize;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = pokemon.slice(itemOffset, endOffset);
 
-  const onPageChange = (page) => {
-    setCurrentPage(page);
-    setItemOffset(page * 20);
-  };
-  const paginatedPosts = paginate(pokemon, currentPage, pageSize);
+  const paginatedPosts = paginate(product, currentPage, pageSize);
 
   const fetchNewOutPut = async () => {
     const variable = endOffset + 20;
@@ -63,9 +64,23 @@ export default function Home(props) {
     }
 
     const pokemon = data?.data.pokemons;
-    setProduct(pokemon);
     console.log("will fetch", pokemon);
+
+    setProduct(pokemon);
   };
+
+  const onPageChange = (page) => {
+    setCurrentPage(page);
+    setItemOffset(page * 20);
+    const { displayPages, currentActive } = displayPage(page, false);
+    const currentLastPage = initialPages.pop();
+    if (currentLastPage === page) {
+      console.log("here", endOffset);
+      fetchNewOutPut();
+    }
+    setInitialPages(displayPages);
+  };
+  console.log();
 
   return (
     <main className=" bg-blue-200 px-10">
@@ -75,9 +90,12 @@ export default function Home(props) {
         })}
       </div>
       <SimplePagination
-        items={pokemon.length} // 100
+        productItem={pokemon.length} // 100
         currentPage={currentPage} // 1
         pageSize={pageSize} // 10
+        setInitialPages={setInitialPages}
+        initialPages={initialPages}
+        setCurrentPage={setCurrentPage}
         onPageChange={onPageChange}
         fetchNewOutPut={fetchNewOutPut}
       ></SimplePagination>

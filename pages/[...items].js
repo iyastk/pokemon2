@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
   } catch (e) {
     console.log(JSON.stringify(e, null, 2));
   }
-  const pokemonDetails = data?.data?.pokemon;
+  const pokemonDetails = data?.data?.pokemon
   return {
     props: {
       pokemonDetails,
