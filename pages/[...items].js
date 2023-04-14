@@ -3,7 +3,7 @@ import { DetailsQuery } from "../utils/queries/queries";
 import DetailCard from "../components/DetailCard";
 
 // query
-const url = "https://graphql-pokemon2.vercel.app";
+const url = process.env.BACKOFFICE_API;
 const client = new ApolloClient({
   uri: url,
   cache: new InMemoryCache(),

@@ -9,7 +9,7 @@ import {
 } from "../components/SimplePagination";
 
 // query
-const url = "https://graphql-pokemon2.vercel.app";
+const url = process.env.BACKOFFICE_API;
 const client = new ApolloClient({
   uri: url,
   cache: new InMemoryCache(),
