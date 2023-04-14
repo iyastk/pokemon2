@@ -5,7 +5,7 @@ const Footer = () => {
     <Fragment>
       <footer className="bg-neutral-200 text-center text-white dark:bg-neutral-600">
         <div className="container pt-9">
-          <div className="mb-9 flex justify-center">
+          <div className="mb-9 flex justify-center text-center">
             <a
               href="#!"
               className="mr-9 text-neutral-800 dark:text-neutral-200"

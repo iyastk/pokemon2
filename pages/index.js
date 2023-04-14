@@ -84,7 +84,7 @@ export default function Home(props) {
 
   return (
     <main className=" bg-blue-200 px-10">
-      <div className="grid  xl:grid-cols-4  xl:grid-cols-3  md:grid-cols-2 sm:grid-cols-1		 gap-2">
+      <div className="grid  xl:grid-cols-4  lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1		 gap-2">
         {paginatedPosts.map((el) => {
           return <Card key={el.id} {...el}></Card>;
         })}

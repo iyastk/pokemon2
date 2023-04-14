@@ -13,7 +13,7 @@ const List = (props) => {
   return (
     <div>
       <h1 className="text-xl my-4	 text-white">{Title}</h1>
-      <div className="flex gap-4 ">
+      <div className="flex sm:flex-wrap gap-4 ">
         {types.map((el, i) => {
           // eslint-disable-next-line react/jsx-key
           return (

@@ -23,7 +23,7 @@ const Card = (props) => {
         </a>
         <div className="flex flex-col lg:w-52  md:w-32 sm:max-w-sm	 items-center p-3 bg-gray-100 rounded mb-2">
           Types :
-          <div className="flex sm:flex-col gap-2 mt-1 ">
+          <div className="flex xl:flex-row   lg:flex-row  md:flex-col sm:flex-col gap-2 mt-1 ">
             {types.map((type, i) => {
               return (
                 <div

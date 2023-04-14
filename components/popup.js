@@ -34,7 +34,7 @@ const Popup = (props) => {
           </svg>
         </div>
 
-        <div className=" flex justify-around items-center">
+        <div className=" flex  justify-around items-center md:flex-col">
           {pokemon.map((el) => {
             return <Evolution {...el} key={el.name}></Evolution>;
           })}

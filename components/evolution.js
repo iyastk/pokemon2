@@ -5,8 +5,8 @@ import List from "./List";
 const Evolution = (props) => {
   const { image, name, number, types } = props;
   return (
-    <div className="flex  justify-center items-center gap-10">
-      <div className="rounded-full bg-white h-40 w-40 flex  justify-center items-center">
+    <div className="flex  justify-center items-center gap-10 md:flex-col sm:flex-col">
+      <div className="rounded-full bg-white h-40 w-40 flex  justify-center items-center md:flex-col sm:flex-col">
         <Image src={image} alt="" width={100} height={100} />
       </div>
       <div>

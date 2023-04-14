@@ -54,8 +54,8 @@ const DetailCard = (props) => {
           <h1 className="text-4xl		uppercase	text-lime-900	">{name}</h1>
           <h2 className="text-4xl	 text-lime-900	">#{number}</h2>
         </div>
-        <div className="flex  w-full	h-5/6		 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div className="flex flex-col justify-center items-center gap-4 w-1/2		 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="flex lg:flex-row md:flex-col sm:flex-col w-full	h-5/6		 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="flex flex-col justify-center items-center gap-4 w-1/2	md:w-full sm:w-full	 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Image
               className="rounded-t-lg"
               src={image}
@@ -64,13 +64,13 @@ const DetailCard = (props) => {
               height={300}
             />
           </div>
-          <div className="flex   w-1/2		 bg-teal-600	 border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="flex   lg:w-1/2 md:w-full		 bg-teal-600	 border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
             <div className="w-full px-10 py-4 ">
-              <div className="flex  justify-center items-center gap-4 p-2">
+              <div className="flex  xl:justify-center xl:items-center sm:flex-col sm:justify-center sm:items-center gap-4 p-2">
                 <h1 className="text-xl	 text-white">Category</h1>
                 <span className="text-xl">{classification}</span>
               </div>
-              <div className="flex justify-between px-2 py-4">
+              <div className="flex lg:flex-row sm:flex-col justify-between px-2 py-4">
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="text-xl	 text-white">Height</h1>
                   <span className="text-xl">Minimum : `{height.minimum}` </span>
